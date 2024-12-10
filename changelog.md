@@ -40,3 +40,23 @@ git remote add origin путь
 git remote set-url origin путь
 git remote set-url --push origin путь)
 ----
+
+git push --set-upstream origin 1-some-issue
+git push --set-upstream vendor 1-some-issue
+
+----
+затянуть все изменения из всех связанных удаленных репозиториев
+git fetch --all
+----
+git merge origin/main
+git merge vendor-1-some-issue
+----
+- сделать так, чтобы однократный “git push” отправлял изменения сразу в несколько репозиториев
+all - название виртуального репозитория, который содержит в себе пути ко всем удалённым репозиториям
+добавить вирутальный репозиторий к себе
+git remote add all путь-к-одному-из-репозиториев
+и
+git remote set-url --add --push all путь-к-тоже-же-одному-из-репозиториев
+git remote set-url --add --push all путь-к-другому-из-репозиториев
+и 
+git push all main
